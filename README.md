@@ -1,6 +1,18 @@
 # PUPT-FLSS-FastAPI-Prototype
 FastAPI based backend prototype for PUPT-FLSS
 
+## How to Run
+
+### Development
+``` python
+fastapi dev app/main.py
+```
+
+### Production
+``` python
+fastapi run app/main.py
+```
+
 ## Project Structure
 [FastApi Docs: Example File Structure](https://fastapi.tiangolo.com/tutorial/bigger-applications/#an-example-file-structure)
 .
