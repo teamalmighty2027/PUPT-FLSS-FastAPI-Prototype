@@ -1,14 +1,17 @@
 from fastapi import APIRouter
-import handlers
+from . import handlers
 
 # Super Admin Routes
 # Routes for super admin related actions
+# Requires its own super admin protection
 
-router = APIRouter()
+router = APIRouter(
+    prefix="/super_admin",
+)
 
-router.include_router(
+router.add_api_route(
     methods=["GET"],
-    prefix="/health",
+    path="/health",
     endpoint=handlers.health_check,
 )
 
