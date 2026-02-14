@@ -1,3 +1,8 @@
+from fastapi import APIRouter
+from . import handlers
+
+router = APIRouter()
+
 # Programs Routes
 
 # Route::get('/programs', [ProgramController::class, 'getPrograms']);

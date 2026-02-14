@@ -1,3 +1,8 @@
+from fastapi import APIRouter
+from . import handlers
+
+router = APIRouter()
+
 # Reports Routes
 
 # Route::get('/faculty-schedules-report', [ReportsController::class, 'getFacultySchedulesReport']);

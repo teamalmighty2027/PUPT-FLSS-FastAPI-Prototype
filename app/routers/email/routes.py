@@ -1,3 +1,8 @@
+from fastapi import APIRouter
+from . import handlers
+
+router = APIRouter()
+
 # Email Routes
 
 # Route::post('/email-all-faculty-pref-submitted', [EmailController::class, 'emailPrefSubmitted']);

@@ -1,3 +1,8 @@
+from fastapi import APIRouter
+from . import handlers
+
+router = APIRouter()
+
 # Faculty Routes
 
 # Route::get('/faculty', [FacultyController::class, 'index']);

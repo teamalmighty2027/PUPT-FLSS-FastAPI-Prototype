@@ -1,3 +1,8 @@
+from fastapi import APIRouter
+from . import handlers
+
+router = APIRouter()
+
 # Faculty Notification Routes
 
 # Route::get('/faculty-notifications', [FacultyNotificationController::class, 'getFacultyNotifications']);

@@ -1,3 +1,8 @@
+from fastapi import APIRouter
+from . import handlers
+
+router = APIRouter()
+
 # Curriculum & Curriculum Details Routes
 
 # Route::get('/curricula', [CurriculumController::class, 'index']);

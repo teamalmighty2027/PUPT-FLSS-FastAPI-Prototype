@@ -1,3 +1,8 @@
+from fastapi import APIRouter
+from . import handlers
+
+router = APIRouter()
+
 # Preferences Routes
 
 # Route::post('/submit-preferences', [PreferenceController::class, 'submitPreferences']);

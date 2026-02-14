@@ -1,3 +1,8 @@
+from fastapi import APIRouter
+from . import handlers
+
+router = APIRouter()
+
 # Academic Year Routes
 
 # Route::get('/get-academic-years', [AcademicYearController::class, 'getAcademicYears']);
