@@ -1,10 +1,9 @@
-from functools import lru_cache
 from fastapi import FastAPI
-from sqlalchemy import text
 from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import text
 from .routers import router as api_router
+from .config import logger
 from .db.base import get_db
-from .config import Settings
 
 app = FastAPI()
 app.include_router(api_router)
@@ -23,10 +22,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@lru_cache
-def get_settings():
-    return Settings()
-
 @app.get("/health/db")
 async def health_check_db():
     try:
@@ -34,7 +29,8 @@ async def health_check_db():
             await session.execute(text('SELECT 1;'))
         return {"status": "ok"}
     except Exception as e:
-        return {"status": "error", "details": str(e)}
+        logger.error(f"Database health check failed: {e}")
+        return {"status": "error"}
 
 @app.get("/")
 async def root():

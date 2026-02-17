@@ -1,4 +1,5 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
+import logging 
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "FLSS FastAPI Prototype"
@@ -8,3 +9,4 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env")
 
 settings = Settings()
+logger = logging.getLogger('uvicorn.error')

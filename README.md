@@ -4,12 +4,12 @@ FastAPI based backend prototype for PUPT-FLSS
 ## How to Run
 
 ### Development
-``` python
+```
 fastapi dev app/main.py --port 5000
 ```
 
 ### Production
-``` python
+```
 fastapi run app/main.py
 ```
 

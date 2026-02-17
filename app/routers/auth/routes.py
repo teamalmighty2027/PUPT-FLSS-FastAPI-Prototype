@@ -1,4 +1,4 @@
-# Authenticaion routes
+# Authentication routes
 
 # Route::middleware('custom.ratelimit:login')->group(function () {
 #     Route::post('login', [AuthController::class, 'login'])->name('login');
