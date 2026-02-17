@@ -1,6 +1,9 @@
-from fastapi import FastAPI, APIRouter
+from functools import lru_cache
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .routers import router as api_router
+from .db.base import get_db
+from .config import Settings
 
 app = FastAPI()
 app.include_router(api_router)
@@ -19,6 +22,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@lru_cache
+def get_settings():
+    return Settings()
+
 @app.get("/")
 async def root():
+    get_db()
     return {"message": "Hello World"}
