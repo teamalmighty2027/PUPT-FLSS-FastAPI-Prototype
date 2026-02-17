@@ -1,5 +1,6 @@
 from functools import lru_cache
 from fastapi import FastAPI
+from sqlalchemy import text
 from fastapi.middleware.cors import CORSMiddleware
 from .routers import router as api_router
 from .db.base import get_db
@@ -26,7 +27,15 @@ app.add_middleware(
 def get_settings():
     return Settings()
 
+@app.get("/health/db")
+async def health_check_db():
+    try:
+        async for session in get_db():
+            await session.execute(text('SELECT 1;'))
+        return {"status": "ok"}
+    except Exception as e:
+        return {"status": "error", "details": str(e)}
+
 @app.get("/")
 async def root():
-    get_db()
     return {"message": "Hello World"}
